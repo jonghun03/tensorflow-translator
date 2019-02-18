@@ -32,40 +32,14 @@ def convert_str(str):
     
     return str_conv
 
+
 # en2ko
 # EN     CHAR CHAR CHAR EOS  NONE NONE NONE
 # KO     NONE NONE NONE CHAR CHAR CHAR EOS
-def pack_en2ko(str_en, str_ko):
-    str_en_pack = []
-    str_ko_pack = []
-
-    en_none_len = len(str_ko_pack)
-    ko_none_len = len(str_en_pack)
-    
-    str_en_pack = str_en_pack + [char_dict['EOS']] + [char_dict['NONE']]*en_none_len
-    str_ko_pack = [char_dict['NONE']]*ko_none_len + str_ko_pack + [char_dict['EOS']]
-
-    return (str_en_conv, str_ko_conv)
 
 # ko2en
 # KO     CHAR CHAR CHAR EOS  NONE NONE NONE
 # EN     NONE NONE NONE CHAR CHAR CHAR EOS
-def pack_ko2en(str_ko, str_en):
-    str_ko_conv = []
-    str_en_conv = []
-
-    ko_none_len = len(str_en_conv)
-    en_none_len = len(str_ko_conv)
-    
-    str_ko_conv = str_ko_conv + [char_dict['EOS']] + [char_dict['NONE']]*ko_none_len
-    str_en_conv = [char_dict['NONE']]*en_none_len + str_en_conv + [char_dict['EOS']]
-    
-    return (str_ko_conv, str_en_conv, len(str_en_conv))
-
-# ‘You were both wonderful!’ ‘So were you!’ we said, returning the compliment.      (80)
-# “당신 두 사람 다 정말 멋졌어요!” “당신들도 그랬어요!” 우리도 그렇게 말하며 같이 칭찬을 해 주었다.   (100*3)
-# cat food (8)
-# 고양이 먹이 (13)
 
 def parse_file(file):
     seq64   = []
