@@ -6,7 +6,7 @@ import string
 
 jamos = [(c,0) for c in hgc.CHO] + [(c,1) for c in hgc.JOONG] + [(c,2) for c in hgc.JONG]
 
-char_list = string.printable[:-5] + jamos + ['‘', '’', 'ELSE', 'NONE', 'EOS']
+char_list = string.printable[:-5] + jamos + ['‘', '’', 'ELSE', 'PAD', 'EOS']
 char_dict = {char_list[i]:i for i in range(len(char_list))}
 
 def decompose_ko(str):
@@ -34,12 +34,12 @@ def convert_str(str):
 
 
 # en2ko
-# EN     CHAR CHAR CHAR EOS  NONE NONE NONE
-# KO     NONE NONE NONE CHAR CHAR CHAR EOS
+# EN     CHAR CHAR CHAR EOS  PAD  PAD  PAD
+# KO     PAD  PAD  PAD  CHAR CHAR CHAR EOS
 
 # ko2en
-# KO     CHAR CHAR CHAR EOS  NONE NONE NONE
-# EN     NONE NONE NONE CHAR CHAR CHAR EOS
+# KO     CHAR CHAR CHAR EOS  PAD  PAD  PAD
+# EN     PAD  PAD  PAD  CHAR CHAR CHAR EOS
 
 def parse_file(file):
     seq64   = []
@@ -100,35 +100,35 @@ def parse_file(file):
     x_ko2en_1024 = np.empty((len(seq1024), 1024))
     y_ko2en_1024 = np.empty((len(seq1024), 1024))
 
-    x_en2ko_64[:]   = char_dict['NONE']
-    y_en2ko_64[:]   = char_dict['NONE']
+    x_en2ko_64[:]   = char_dict['PAD']
+    y_en2ko_64[:]   = char_dict['PAD']
 
-    x_ko2en_64[:]   = char_dict['NONE']
-    y_ko2en_64[:]   = char_dict['NONE']
+    x_ko2en_64[:]   = char_dict['PAD']
+    y_ko2en_64[:]   = char_dict['PAD']
 
-    x_en2ko_128[:]  = char_dict['NONE']
-    y_en2ko_128[:]  = char_dict['NONE']
+    x_en2ko_128[:]  = char_dict['PAD']
+    y_en2ko_128[:]  = char_dict['PAD']
 
-    x_ko2en_128[:]  = char_dict['NONE']
-    y_ko2en_128[:]  = char_dict['NONE']
+    x_ko2en_128[:]  = char_dict['PAD']
+    y_ko2en_128[:]  = char_dict['PAD']
 
-    x_en2ko_256[:]  = char_dict['NONE']
-    y_en2ko_256[:]  = char_dict['NONE']
+    x_en2ko_256[:]  = char_dict['PAD']
+    y_en2ko_256[:]  = char_dict['PAD']
 
-    x_ko2en_256[:]  = char_dict['NONE']
-    y_ko2en_256[:]  = char_dict['NONE']
+    x_ko2en_256[:]  = char_dict['PAD']
+    y_ko2en_256[:]  = char_dict['PAD']
 
-    x_en2ko_512[:]  = char_dict['NONE']
-    y_en2ko_512[:]  = char_dict['NONE']
+    x_en2ko_512[:]  = char_dict['PAD']
+    y_en2ko_512[:]  = char_dict['PAD']
 
-    x_ko2en_512[:]  = char_dict['NONE']
-    y_ko2en_512[:]  = char_dict['NONE']
+    x_ko2en_512[:]  = char_dict['PAD']
+    y_ko2en_512[:]  = char_dict['PAD']
 
-    x_en2ko_1024[:] = char_dict['NONE']
-    y_en2ko_1024[:] = char_dict['NONE']
+    x_en2ko_1024[:] = char_dict['PAD']
+    y_en2ko_1024[:] = char_dict['PAD']
 
-    x_ko2en_1024[:] = char_dict['NONE']
-    y_ko2en_1024[:] = char_dict['NONE']
+    x_ko2en_1024[:] = char_dict['PAD']
+    y_ko2en_1024[:] = char_dict['PAD']
 
     for i in range(len(seq64)):
         str_en, str_ko = seq64[i]

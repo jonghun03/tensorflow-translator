@@ -55,13 +55,13 @@ async def main():
             dicts = await write({english_filtered[i]: korean_filtered[i] for i in range(len(english_filtered)) if not special_chars.match(english_filtered[i])})
         except:
             continue
-
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
-
-    
-    
-
+        no_special = re.compile('.*?\'.*?|.*?’.*?|.*?‘.*?|.*?/.*?|.*?\-.*?|.*?\d.*?|.*?\—.*?|.*?;.*?|.*?“.*?|.*?….*?|.*?─.*?')
+        for i in range(len(english_filtered)):
+            splitted = [ re.sub('\.|,|\?|\!|”|:', '', i.lower()) for i in english_filtered[i].split() if not no_special.match(i) ]
+            for j, v in enumerate(splitted):
+                wrds = await load_words()
+                if not (v in wrds):
+                    await addword(v)
     
 
     
