@@ -1,6 +1,6 @@
 # tensorflow-translator
 
-> ## 한 사람이 계속 커밋을 하는 이유는 Visual Studio Code Live Share 기능으로 공동 작업을 하였기 때문입니다.
+> ### 한 사람이 계속 커밋을 하는 이유는 Visual Studio Code Live Share 기능으로 공동 작업을 하였기 때문입니다.
 
 > ### 현재 위 문서는 작업중인 프로젝트입니다
 > > 프로젝트 작업 완료 후 라이센스에 맞게 수정될것이며 작업사항은 공개됩니다.<br />
