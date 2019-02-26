@@ -1,7 +1,7 @@
 import util
 
 def generate_dict(strings, parser):
-    morph_dict = ['EOS']
+    morph_dict = ['EOS', 'PAD']
 
     for string in strings:
         morphs = parser(string)

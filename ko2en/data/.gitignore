@@ -1,4 +1,5 @@
 __pycache__
+*.pyc
 source_url.txt
 data_crawler.txt
 en_dict.txt
@@ -6,4 +7,4 @@ ko_dict.txt
 keys.txt
 key_new.txt
 key_used.txt
-
+buckets.pk
